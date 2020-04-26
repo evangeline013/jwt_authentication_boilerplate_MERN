@@ -8,6 +8,10 @@ const generateUserToken = user => {
     return jwt.encode({ sub: user.id, iat: timestamp }, keys.jwtSecret);
 };
 
+exports.signin = (req, res, next) => {
+    res.send({ token: generateUserToken(req.user) });
+};
+
 exports.signup = async (req, res, next) => {
     const email = req.body.email;
     const password = req.body.password;
