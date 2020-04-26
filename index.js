@@ -3,7 +3,6 @@ const http = require('http');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const app = express();
-const router = require('./router');
 const mongoose = require('mongoose');
 const keys = require('./config/keys');
 require('./models/User')
@@ -13,7 +12,7 @@ mongoose.connect(keys.mongoURI);
 // App Setup
 app.use(morgan('combined'));
 app.use(bodyParser.json({ type: '*/*' }));
-router(app);
+require('./router')(app);
 
 // Server Setup
 const port = process.env.PORT || 3090;
