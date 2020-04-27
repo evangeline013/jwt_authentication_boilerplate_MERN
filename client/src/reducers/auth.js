@@ -3,6 +3,6 @@ const INITIAL_STATE = {
     errorMessage: '',
 };
 
-export default (state = INITIAL_STATE, action) {
+export default (state = INITIAL_STATE, action) => {
     return state;
 };
